@@ -1,17 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <nav>
+    <router-link :to="{ name: 'home', params: { id: 1, message: 'Home' } }">Home</router-link> |
+    <router-link :to="{ name: 'about', params: { id: 2, message: 'About' } }">About</router-link>
+  </nav>
+  <router-view/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { computed } from "vue";
+import { useRoute } from "vue-router";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  setup() {
+    const route = useRoute();
+
+    const id = computed(() => route.params.id);
+    return {
+      id,
+    };
+  },
+};
 </script>
 
 <style>
