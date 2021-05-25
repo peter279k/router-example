@@ -1,4 +1,4 @@
-# router-example
+# Vue.js 3 router-example
 
 ## Project setup
 ```
